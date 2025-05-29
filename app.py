@@ -1,12 +1,11 @@
 import streamlit as st
 from docx import Document
 import spacy
-import pandas as pd
-
-import spacy
 import subprocess
 import sys
+import pandas as pd
 
+# Automatically download spaCy model if missing
 try:
     nlp = spacy.load("en_core_web_sm")
 except OSError:
