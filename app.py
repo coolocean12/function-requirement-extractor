@@ -1,16 +1,10 @@
 import streamlit as st
 from docx import Document
 import spacy
-import subprocess
-import sys
 import pandas as pd
 
-# Automatically download spaCy model if missing
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    subprocess.run([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
-    nlp = spacy.load("en_core_web_sm")
+# Load the pre-installed spaCy model
+nlp = spacy.load("en_core_web_sm")
 
 def extract_text_from_docx(uploaded_file):
     doc = Document(uploaded_file)
